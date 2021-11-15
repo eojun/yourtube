@@ -1,0 +1,27 @@
+
+spring:
+  profiles:
+    active: "default"
+  thymeleaf:
+    prefix: classpath:templates/
+    suffix: .html
+    cache: false
+  devtools:
+    livereload:
+      enabled: true
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url:
+    username:
+    password:
+
+server:
+  port: 8080
+  tomcat:
+    basedir: ./
+    accesslog:
+      enabled: true
+      pattern: "%{yyyy-MM-dd HH:mm:ss}t %a %s \"%r\" %b (%D ms)"
+      directory: log
+      suffix: .log
+      prefix: access
