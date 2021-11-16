@@ -1,7 +1,8 @@
-
 spring:
   profiles:
     active: "default"
+  main:
+    allow-bean-definition-overriding: true
   thymeleaf:
     prefix: classpath:templates/
     suffix: .html
@@ -14,6 +15,17 @@ spring:
     url:
     username:
     password:
+  jpa:
+    hibernate:
+      ddl-auto: create
+    properties:
+      hibernate:
+        show_sql: true
+        format_sql: true
+        use_sql_comments: true
+    show-sql: true
+  mvc:
+    static-path-pattern: /static/**
 
 server:
   port: 8080
@@ -25,3 +37,13 @@ server:
       directory: log
       suffix: .log
       prefix: access
+
+
+logging:
+  config: classpath:logback-spring-dev.xml
+  level:
+    org.thymeleaf: INFO
+    org.springframework.web: INFO
+    org.hibernate.SQL: INFO
+    org.quartz.core: INFO
+    org.h2.server.web: INFO
